@@ -4,7 +4,11 @@ import { useForm } from "react-hook-form";
 
 const EditUserForm = (props) => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    console.log(props.currentUser);
+
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        defaultValues: props.currentUser
+    });
 
     const onSubmit = (data, e) => {
 

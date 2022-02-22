@@ -49,6 +49,19 @@ const deleteUser = (id) => {
 // editar usuarios
 const [edditing, setEdditing] = useState(false);
 
+const [currentUser, setCurrentUser] = useState({
+  id: null, name: '', username: ''
+});
+
+const editRow = (user) => {
+  setEdditing(true);
+
+  setCurrentUser({
+    id: user.id,
+    name: user.name,
+    username: user.username
+  })
+}
 
   return (
     <div className="container">
@@ -61,7 +74,9 @@ const [edditing, setEdditing] = useState(false);
 
               <div>
                 <h2>Edit user</h2>
-                  <EditUserForm />
+                  <EditUserForm 
+                  currentUser={currentUser}
+                  />
               </div>
             ) : (
               <div>
@@ -76,7 +91,9 @@ const [edditing, setEdditing] = useState(false);
           <h2>View users</h2>
           <UserTable 
           users={users} 
-          deleteUser={deleteUser} setEdditing={setEdditing}/>
+          deleteUser={deleteUser}
+          editRow={editRow}
+          />
         </div>
       </div>
     </div>
