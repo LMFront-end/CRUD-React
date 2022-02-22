@@ -63,6 +63,15 @@ const editRow = (user) => {
   })
 }
 
+// actualizar
+const updateUser = (id, updateUser) => {
+  setEdditing(false);
+
+  setUsers(users.map((user) =>{
+      return user.id  === id ? updateUser : user;
+  }));
+}
+
   return (
     <div className="container">
       <h1>CRUD App with Hooks</h1>
@@ -76,6 +85,7 @@ const editRow = (user) => {
                 <h2>Edit user</h2>
                   <EditUserForm 
                   currentUser={currentUser}
+                  updateUser={updateUser}
                   />
               </div>
             ) : (
