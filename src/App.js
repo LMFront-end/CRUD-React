@@ -37,7 +37,11 @@ const App = () => {
 
 const deleteUser = (id) => {
 
-  console.log(id);
+  //console.log(id);
+
+  const arrayFiltrado = users.filter(user => user.id !== id);
+
+  setUsers(arrayFiltrado);
 }
 
 
