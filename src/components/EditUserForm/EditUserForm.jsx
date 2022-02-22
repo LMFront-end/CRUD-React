@@ -1,22 +1,18 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 
-const AddUserForm = (props) => {
 
+const EditUserForm = (props) => {
 
-const { register, handleSubmit, formState: { errors } } = useForm();
-const onSubmit = (data, e) => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const onSubmit = (data, e) => {
 
     //limpiar campos
     e.target.reset();
 
     //console.log(data)
-
-    // agregar usuario
-    props.addUser(data);
 }
-
-
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -45,9 +41,9 @@ const onSubmit = (data, e) => {
             <div>
             {errors.username?.type === 'required' && "The username is required"}
             </div>
-            <button>Add new user</button>
+            <button>Edit user</button>
     </form>
     )
 }
 
-export {AddUserForm}
+export {EditUserForm}
